@@ -1,11 +1,9 @@
-FROM tomcat:8.0
+FROM tomcat:latest
 
-MAINTAINER hemanth.sai01@gmail.com
+LABEL maintainer="alekyajune19@gmail.com
 
-USER root
+ADD jenkins.war /usr/local/tomcat/webapps/
 
-COPY ["jenkins.war","/usr/local/tomcat/webapps/"]
-COPY ["context.xml","/usr/local/tomcat/webapps/manager/META-INF"]
-COPY ["tomcat-users.xml","/usr/local/tomcat/conf/"]
+EXPOSE 8080
 
-CMD ["catalina.sh","run"]
+CMD ["catalina.sh", "run"]
